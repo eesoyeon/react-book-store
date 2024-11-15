@@ -1,26 +1,64 @@
 // import './App.css';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
-import { GlobalStyle } from './style/global';
-import { ThemeProvider } from 'styled-components';
-import { dark, getTheme, light, ThemeName } from './style/theme';
 import ThemeSwitcher from './components/common/Header/ThemeSwitcher';
-import { useContext, useState } from 'react';
-import { BookStoreThemeProvider, ThemeContext } from './context/themeContext';
+import { BookStoreThemeProvider } from './context/themeContext';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Error from './components/common/Error';
+import SingUp from './pages/SingUp';
+import ResetPassword from './pages/ResetPassword';
+import Login from './pages/Login';
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: (
+            <Layout>
+                <Home />
+            </Layout>
+        ),
+        errorElement: <Error />, // 루트가 잘못됐을 경우 에러 페이지
+    },
+    {
+        path: '/books',
+        element: (
+            <Layout>
+                <div>도서 목록</div>
+            </Layout>
+        ),
+    },
+    {
+        path: '/signup',
+        element: (
+            <Layout>
+                <SingUp />
+            </Layout>
+        ),
+    },
+    {
+        path: '/reset',
+        element: (
+            <Layout>
+                <ResetPassword />
+            </Layout>
+        ),
+    },
+    {
+        path: '/login',
+        element: (
+            <Layout>
+                <Login />
+            </Layout>
+        ),
+    },
+]);
 
 function App() {
-    // const { themeName, setThemeName } = useContext(ThemeContext); // 전역 상태
-
-    // const [themeName, setThemeName] = useState<ThemeName>('light'); // 지역 상태
     return (
-        <>
-            <BookStoreThemeProvider>
-                <ThemeSwitcher />
-                <Layout>
-                    <Home />
-                </Layout>
-            </BookStoreThemeProvider>
-        </>
+        <BookStoreThemeProvider>
+            <ThemeSwitcher />
+            <RouterProvider router={router} />
+        </BookStoreThemeProvider>
     );
 }
 
