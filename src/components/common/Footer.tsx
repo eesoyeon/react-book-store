@@ -15,7 +15,7 @@ function Footer() {
 
 const FooterStyle = styled.header`
     width: 100%;
-    margin: 0 auto:
+    margin: 0 auto;
     max-width: ${({ theme }) => theme.layout.width.large};
     padding: 20px 0;
     border-top: 1px solid ${({ theme }) => theme.color.background};
@@ -33,8 +33,6 @@ const FooterStyle = styled.header`
             color: ${({ theme }) => theme.color.text};
         }
     }
-    
-
 `;
 
 export default Footer;
