@@ -9,6 +9,7 @@ import { formatDate, formatNumber } from '../utils/format';
 import { Link } from 'react-router-dom';
 import EllipsisBox from '../components/common/EllipsisBox';
 import LikeButton from '../components/book/LikeButton';
+import AddToCart from '../components/book/AddToCart';
 
 const bookInfoList = [
     {
@@ -88,7 +89,9 @@ const BookDetail = () => {
                     <div className="like">
                         <LikeButton book={book} onClick={likeToggle} />
                     </div>
-                    <div className="add-cart">장바구니 넣기</div>
+                    <div className="add-cart">
+                        <AddToCart book={book} />
+                    </div>
                 </div>
             </header>
             <div className="content">
