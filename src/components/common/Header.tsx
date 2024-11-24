@@ -3,17 +3,17 @@ import { FaSignInAlt, FaRegUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useCategory } from '../../hooks/useCategory';
 import { useAuthStore } from '../../store/authStore';
+import logo from '../../assets/images/logo.png';
 
 const Header = () => {
     const { category } = useCategory();
-
     const { isLoggedIn, storeLogout } = useAuthStore();
 
     return (
         <HeaderStyle>
             <h1 className="logo">
                 <Link to="/">
-                    <img src="" alt="book store" />
+                    <img src={logo} alt="book store" />
                 </Link>
             </h1>
             <nav className="category">

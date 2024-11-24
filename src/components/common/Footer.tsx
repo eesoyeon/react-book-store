@@ -1,10 +1,11 @@
+import logo from '../../assets/images/logo.png';
 import styled from 'styled-components';
 
 function Footer() {
     return (
         <FooterStyle>
             <h1 className="logo">
-                <img alt="book store" />
+                <img src={logo} alt="book store" />
             </h1>
             <div>
                 <p>copyright(c), 2024, book store.</p>
@@ -24,7 +25,7 @@ const FooterStyle = styled.header`
     align-items: center;
     .logo {
         img {
-            witdh: 140px;
+            width: 140px;
         }
     }
     .copyright {
